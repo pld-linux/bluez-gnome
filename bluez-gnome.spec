@@ -12,6 +12,8 @@ URL:		http://www.bluez.org/
 BuildRequires:	dbus-glib-devel >= 0.60
 BuildRequires:	gtk+2-devel >= 2:2.10.0
 BuildRequires:	pkgconfig
+Requires:	dbus-glib >= 0.60
+Requires:	gtk+2 >= 2:2.10.0
 Obsoletes:	bluez-pin
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
