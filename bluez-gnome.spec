@@ -1,5 +1,5 @@
 Summary:	Bluetooth PIN manager for GNOME
-Summary(pl):	Zarz±dca kodów PIN Bluetootha dla GNOME
+Summary(pl.UTF-8):   ZarzÄ…dca kodÃ³w PIN Bluetootha dla GNOME
 Name:		bluez-gnome
 Version:	0.6
 Release:	1
@@ -28,13 +28,13 @@ to be entered. PINs can optionally be saved in a persistent database,
 for use with dumb devices that are unable to remember pairing
 information across sessions.
 
-%description -l pl
-Bardzo prosty program pilnuj±cy numerów PIN u¿ywanych do parowania
-urz±dzeñ Bluetooth. Kiedy wymagany jest PIN dla przychodz±cego lub
-wychodz±cego po³±czenia, pokazuje okienko umo¿liwiaj±ce wprowadzenie
-kodu. PIN-y opcjonalnie mog± byæ przechowywane w bazie danych do
-u¿ywania z prymitywnymi urz±dzeniami nie potrafi±cymi zapamiêtaæ
-informacji o parowaniu miêdzy sesjami.
+%description -l pl.UTF-8
+Bardzo prosty program pilnujÄ…cy numerÃ³w PIN uÅ¼ywanych do parowania
+urzÄ…dzeÅ„ Bluetooth. Kiedy wymagany jest PIN dla przychodzÄ…cego lub
+wychodzÄ…cego poÅ‚Ä…czenia, pokazuje okienko umoÅ¼liwiajÄ…ce wprowadzenie
+kodu. PIN-y opcjonalnie mogÄ… byÄ‡ przechowywane w bazie danych do
+uÅ¼ywania z prymitywnymi urzÄ…dzeniami nie potrafiÄ…cymi zapamiÄ™taÄ‡
+informacji o parowaniu miÄ™dzy sesjami.
 
 %prep
 %setup -q
