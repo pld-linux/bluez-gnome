@@ -1,5 +1,5 @@
 Summary:	Bluetooth PIN manager for GNOME
-Summary(pl.UTF-8):   Zarządca kodów PIN Bluetootha dla GNOME
+Summary(pl.UTF-8):	Zarządca kodów PIN Bluetootha dla GNOME
 Name:		bluez-gnome
 Version:	0.6
 Release:	1
