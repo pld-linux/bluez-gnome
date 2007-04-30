@@ -10,13 +10,15 @@ Source0:	http://bluez.sourceforge.net/download/%{name}-%{version}.tar.gz
 # Source0-md5:	54334e3d7af70846eb4916191e46081c
 Patch0:		%{name}-as-needed.patch
 URL:		http://www.bluez.org/
+BuildRequires:	GConf2-devel >= 2.6
 BuildRequires:	autoconf
 BuildRequires:	automake
 BuildRequires:	dbus-glib-devel >= 0.60
-# BuildRequires:	gtk+2-devel >= 2:2.10.0
+BuildRequires:	gtk+2-devel >= 2:2.10.0
+BuildRequires:	libnotify-devel >= 0.3.2
 BuildRequires:	pkgconfig
 Requires:	dbus-glib >= 0.60
-# Requires:	gtk+2 >= 2:2.10.0
+Requires:	gtk+2 >= 2:2.10.0
 Obsoletes:	bluez-pin
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
