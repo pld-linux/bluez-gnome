@@ -1,22 +1,24 @@
 Summary:	Bluetooth PIN manager for GNOME
 Summary(pl.UTF-8):	Zarządca kodów PIN Bluetootha dla GNOME
 Name:		bluez-gnome
-Version:	0.6
-Release:	1.1
-License:	GPL
+Version:	0.9
+Release:	1
+License:	GPL v2+
 Group:		X11/Applications
 #Source0Download: http://www.bluez.org/download.html
 Source0:	http://bluez.sourceforge.net/download/%{name}-%{version}.tar.gz
-# Source0-md5:	54334e3d7af70846eb4916191e46081c
-Patch0:		%{name}-as-needed.patch
+# Source0-md5:	1a6efed67cb0165e76582d3452b4148a
 URL:		http://www.bluez.org/
 BuildRequires:	GConf2-devel >= 2.6
-BuildRequires:	autoconf
+BuildRequires:	autoconf >= 2.50
 BuildRequires:	automake
 BuildRequires:	dbus-glib-devel >= 0.60
+BuildRequires:	gettext-devel
 BuildRequires:	gtk+2-devel >= 2:2.10.0
+BuildRequires:	hal-devel >= 0.5.8
 BuildRequires:	libnotify-devel >= 0.3.2
 BuildRequires:	pkgconfig
+Requires(post,preun):	GConf2 >= 2.6
 Requires:	dbus-glib >= 0.60
 Requires:	gtk+2 >= 2:2.10.0
 Obsoletes:	bluez-pin
@@ -40,11 +42,11 @@ informacji o parowaniu między sesjami.
 
 %prep
 %setup -q
-%patch0 -p1
 
 %build
 %{__aclocal}
 %{__automake}
+%{__autoheader}
 %{__autoconf}
 %configure
 %{__make}
@@ -56,13 +58,24 @@ rm -rf $RPM_BUILD_ROOT
 	DESTDIR=$RPM_BUILD_ROOT \
 	autostartdir=%{_datadir}/gnome/autostart
 
+%find_lang bluetooth-manager
+
 %clean
 rm -rf $RPM_BUILD_ROOT
 
-%files
+%post
+%gconf_schema_install bluetooth-manager.schemas
+
+%preun
+%gconf_schema_uninstall bluetooth-manager.schemas
+
+%files -f bluetooth-manager.lang
 %defattr(644,root,root,755)
-%doc AUTHORS ChangeLog NEWS README
+%doc AUTHORS ChangeLog README
 %attr(755,root,root) %{_bindir}/bluetooth-applet
 %attr(755,root,root) %{_bindir}/bluetooth-properties
 %{_datadir}/gnome/autostart/bluetooth-applet.desktop
 %{_desktopdir}/bluetooth-properties.desktop
+%{_sysconfdir}/gconf/schemas/bluetooth-manager.schemas
+%{_mandir}/man1/bluetooth-applet.1*
+%{_mandir}/man1/bluetooth-properties.1*
