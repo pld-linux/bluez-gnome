@@ -1,3 +1,4 @@
+# TODO locale file
 Summary:	Bluetooth PIN manager for GNOME
 Summary(pl.UTF-8):	Zarządca kodów PIN Bluetootha dla GNOME
 Name:		bluez-gnome
@@ -45,11 +46,13 @@ informacji o parowaniu między sesjami.
 %setup -q
 
 %build
+%{__intltoolize}
 %{__aclocal}
 %{__automake}
 %{__autoheader}
 %{__autoconf}
-%configure
+%configure \
+	--disable-update-mimedb
 %{__make}
 
 %install
@@ -66,9 +69,13 @@ rm -rf $RPM_BUILD_ROOT
 
 %post
 %gconf_schema_install bluetooth-manager.schemas
+%update_mime_database
 
 %preun
 %gconf_schema_uninstall bluetooth-manager.schemas
+
+%postun
+%update_mime_database
 
 %files -f bluetooth-manager.lang
 %defattr(644,root,root,755)
@@ -83,3 +90,4 @@ rm -rf $RPM_BUILD_ROOT
 %{_mandir}/man1/bluetooth-properties.1*
 %{_mandir}/man1/bluetooth-analyzer.1*
 %{_desktopdir}/bluetooth-analyzer.desktop
+%{_datadir}/mime/*
