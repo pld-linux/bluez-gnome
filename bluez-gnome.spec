@@ -52,7 +52,8 @@ informacji o parowaniu między sesjami.
 %{__autoheader}
 %{__autoconf}
 %configure \
-	--disable-update-mimedb
+	--disable-desktop-update \
+	--disable-mime-update
 %{__make}
 
 %install
