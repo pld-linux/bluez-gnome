@@ -24,6 +24,7 @@ Requires(post,preun):	GConf2 >= 2.6
 Requires(post,postun):	shared-mime-info
 Requires:	dbus-glib >= 0.60
 Requires:	gtk+2 >= 2:2.10.0
+Suggests:	gnome-vfs-obexftp
 Obsoletes:	bluez-pin
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
