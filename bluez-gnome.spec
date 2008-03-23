@@ -2,13 +2,13 @@
 Summary:	Bluetooth PIN manager for GNOME
 Summary(pl.UTF-8):	Zarządca kodów PIN Bluetootha dla GNOME
 Name:		bluez-gnome
-Version:	0.15
+Version:	0.25
 Release:	1
 License:	GPL v2+
 Group:		X11/Applications
 #Source0Download: http://www.bluez.org/download.html
 Source0:	http://bluez.sourceforge.net/download/%{name}-%{version}.tar.gz
-# Source0-md5:	c1fef5de75cc4f9bdb1a21541ecb0f39
+# Source0-md5:	4acb0c83b351e4f36e88c6d775f15837
 URL:		http://www.bluez.org/
 BuildRequires:	GConf2-devel >= 2.6
 BuildRequires:	autoconf >= 2.50
@@ -21,6 +21,7 @@ BuildRequires:	libnotify-devel >= 0.3.2
 BuildRequires:	pkgconfig
 BuildRequires:	rpmbuild(macros) >= 1.311
 Requires(post,preun):	GConf2 >= 2.6
+Requires(post,postun):	hicolor-icon-theme
 Requires(post,postun):	shared-mime-info
 Requires:	dbus-glib >= 0.60
 Requires:	gtk+2 >= 2:2.10.0
@@ -73,24 +74,30 @@ rm -rf $RPM_BUILD_ROOT
 %post
 %gconf_schema_install bluetooth-manager.schemas
 %update_mime_database
+%update_icon_cache hicolor
 
 %preun
 %gconf_schema_uninstall bluetooth-manager.schemas
 
 %postun
 %update_mime_database
+%update_icon_cache hicolor
 
 %files -f bluetooth-manager.lang
 %defattr(644,root,root,755)
 %doc AUTHORS ChangeLog README
+%attr(755,root,root) %{_bindir}/bluetooth-analyzer
 %attr(755,root,root) %{_bindir}/bluetooth-applet
 %attr(755,root,root) %{_bindir}/bluetooth-properties
-%attr(755,root,root) %{_bindir}/bluetooth-analyzer
+%attr(755,root,root) %{_bindir}/bluetooth-sendto
 %{_sysconfdir}/xdg/autostart/bluetooth-applet.desktop
 %{_desktopdir}/bluetooth-properties.desktop
 %{_sysconfdir}/gconf/schemas/bluetooth-manager.schemas
+%{_mandir}/man1/bluetooth-analyzer.1*
 %{_mandir}/man1/bluetooth-applet.1*
 %{_mandir}/man1/bluetooth-properties.1*
-%{_mandir}/man1/bluetooth-analyzer.1*
+%{_mandir}/man1/bluetooth-sendto.1*
 %{_desktopdir}/bluetooth-analyzer.desktop
 %{_datadir}/mime/packages/*.xml
+%{_iconsdir}/hicolor/*/apps/bluetooth.png
+%{_iconsdir}/hicolor/*/apps/bluetooth.svg
