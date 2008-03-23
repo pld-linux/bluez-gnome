@@ -3,7 +3,7 @@ Summary:	Bluetooth PIN manager for GNOME
 Summary(pl.UTF-8):	Zarządca kodów PIN Bluetootha dla GNOME
 Name:		bluez-gnome
 Version:	0.25
-Release:	2
+Release:	3
 License:	GPL v2+
 Group:		X11/Applications
 #Source0Download: http://www.bluez.org/download.html
@@ -28,6 +28,7 @@ Requires:	gtk+2 >= 2:2.10.0
 Requires:	obex-data-server >= 0.3
 Suggests:	gnome-vfs-obexftp
 Obsoletes:	bluez-pin
+Obsoletes:	gnome-bluetooth
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
