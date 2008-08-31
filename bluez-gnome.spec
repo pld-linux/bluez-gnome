@@ -2,13 +2,13 @@
 Summary:	Bluetooth PIN manager for GNOME
 Summary(pl.UTF-8):	Zarządca kodów PIN Bluetootha dla GNOME
 Name:		bluez-gnome
-Version:	0.28
-Release:	2
+Version:	1.2
+Release:	1
 License:	GPL v2+
 Group:		X11/Applications
 #Source0Download: http://www.bluez.org/download.html
-Source0:	http://bluez.sourceforge.net/download/%{name}-%{version}.tar.gz
-# Source0-md5:	f2afcb04e998fdc6aa545633190bc941
+Source0:	http://www.kernel.org/pub/linux/bluetooth/%{name}-%{version}.tar.gz
+# Source0-md5:	645fdd6bc201fc54984da87cbefe3f70
 URL:		http://www.bluez.org/
 BuildRequires:	GConf2-devel >= 2.6
 BuildRequires:	autoconf >= 2.50
@@ -95,6 +95,7 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_bindir}/bluetooth-applet
 %attr(755,root,root) %{_bindir}/bluetooth-properties
 %attr(755,root,root) %{_bindir}/bluetooth-sendto
+%attr(755,root,root) %{_bindir}/bluetooth-wizard
 %{_sysconfdir}/xdg/autostart/bluetooth-applet.desktop
 %{_desktopdir}/bluetooth-properties.desktop
 %{_sysconfdir}/gconf/schemas/bluetooth-manager.schemas
@@ -102,6 +103,7 @@ rm -rf $RPM_BUILD_ROOT
 %{_mandir}/man1/bluetooth-applet.1*
 %{_mandir}/man1/bluetooth-properties.1*
 %{_mandir}/man1/bluetooth-sendto.1*
+%{_mandir}/man1/bluetooth-wizard.1*
 %{_desktopdir}/bluetooth-analyzer.desktop
 %{_datadir}/mime/packages/*.xml
 %{_iconsdir}/hicolor/*/apps/bluetooth.png
