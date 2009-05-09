@@ -17,12 +17,13 @@ BuildRequires:	dbus-glib-devel >= 0.60
 BuildRequires:	gettext-devel
 BuildRequires:	gtk+2-devel >= 2:2.10.0
 BuildRequires:	hal-devel >= 0.5.8
+BuildRequires:	intltool
 BuildRequires:	libnotify-devel >= 0.3.2
 BuildRequires:	pkgconfig
 BuildRequires:	rpmbuild(macros) >= 1.311
-Requires(post,preun):	GConf2 >= 2.6
 Requires(post,postun):	hicolor-icon-theme
 Requires(post,postun):	shared-mime-info
+Requires(post,preun):	GConf2 >= 2.6
 Requires:	dbus-glib >= 0.60
 Requires:	gtk+2 >= 2:2.10.0
 Requires:	obex-data-server >= 0.3
