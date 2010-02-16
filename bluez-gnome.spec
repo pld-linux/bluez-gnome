@@ -70,7 +70,7 @@ rm -rf $RPM_BUILD_ROOT
 	autostartdir=%{_sysconfdir}/xdg/autostart
 
 # error: bluez-gnome-0.28-1: req /usr/share/locale/mus/LC_MESSAGES not found
-rm -rf $RPM_BUILD_ROOT%{_datadir}/locale/mus/LC_MESSAGES
+rm -rf $RPM_BUILD_ROOT%{_datadir}/locale/mus
 
 %find_lang bluetooth-manager
 
