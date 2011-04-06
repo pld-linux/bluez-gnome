@@ -1,0 +1,15 @@
+--- bluez-gnome-1.8/applet/notify.c~	2008-09-29 14:08:50.000000000 +0200
++++ bluez-gnome-1.8/applet/notify.c	2011-04-06 17:04:30.407130903 +0200
+@@ -53,7 +53,11 @@
+ 		notify_notification_close(notify, NULL);
+ 	}
+ 
+-	notify = notify_notification_new(summary, message, "bluetooth", NULL);
++	notify = notify_notification_new(summary, message, "bluetooth"
++#if !defined(NOTIFY_VERSION_MINOR) || (NOTIFY_VERSION_MAJOR == 0 && NOTIFY_VERSION_MINOR < 7)
++		, NULL
++#endif
++		);
+ 
+ 	notify_notification_set_timeout(notify, timeout);
+ 
