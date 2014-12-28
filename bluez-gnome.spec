@@ -15,7 +15,7 @@ BuildRequires:	GConf2-devel >= 2.6
 BuildRequires:	autoconf >= 2.50
 BuildRequires:	automake
 BuildRequires:	dbus-glib-devel >= 0.60
-BuildRequires:	gettext-devel
+BuildRequires:	gettext-tools
 BuildRequires:	gtk+2-devel >= 2:2.10.0
 BuildRequires:	intltool
 BuildRequires:	libnotify-devel >= 0.3.2
